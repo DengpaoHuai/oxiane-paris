@@ -6,4 +6,11 @@ export const movieSchema = z.object({
   rating: z.coerce.number().min(1).max(5),
 });
 
-export type Movie = z.infer<typeof movieSchema>;
+//export type Movie = z.infer<typeof movieSchema>;
+
+export type Movie = {
+  _id: string;
+  title: string;
+  description: string;
+  rating: number;
+};

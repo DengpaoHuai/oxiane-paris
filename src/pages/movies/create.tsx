@@ -16,11 +16,11 @@ const CreateMovie = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Movie>({
+  } = useForm<Omit<Movie, "_id">>({
     resolver: zodResolver(movieSchema),
   });
 
-  const onSubmit = (data: Movie) => {
+  const onSubmit = (data: Omit<Movie, "_id">) => {
     console.log(data);
     mutateAsync(data).then(() => {
       console.log("Movie created");
