@@ -1,4 +1,8 @@
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import {
+  useQuery,
+  useSuspenseQuery,
+  type UseQueryOptions,
+} from "@tanstack/react-query";
 
 export type Movie = {
   _id: string;
@@ -22,8 +26,11 @@ export const queryMoviesOptions = {
   //refetchOnWindowFocus: true,
 };
 
-export const useMovies = () => {
+export const useMovies = (
+  options: Omit<UseQueryOptions<Movie[]>, "queryKey">
+) => {
   return useQuery<Movie[]>({
     ...queryMoviesOptions,
+    ...options,
   });
 };

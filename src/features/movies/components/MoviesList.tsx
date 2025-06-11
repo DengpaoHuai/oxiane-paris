@@ -4,7 +4,9 @@ import useDeleteMovie from "../api/delete-movie";
 import { useMovies } from "../api/get-movies";
 
 const MoviesList = () => {
-  const { data, isLoading, error } = useMovies();
+  const { data, isLoading, error } = useMovies({
+    staleTime: 1000,
+  });
 
   const { mutate } = useDeleteMovie();
 
