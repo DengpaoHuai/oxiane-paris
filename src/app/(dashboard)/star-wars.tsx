@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getPlanets } from "../services/planet.service";
+import { getPlanets } from "../../services/planet.service";
 import { useState } from "react";
 
 type SwapiResponse = {

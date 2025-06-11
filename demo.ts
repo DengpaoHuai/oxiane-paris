@@ -1,9 +1,11 @@
 const toto = "toto";
 
-type Test = {
-  property: string;
-};
+interface User {
+  name: string;
+  age: number;
+}
 
-let test: Test = {
-  property: toto,
+const user: Required<User> = {
+  name: "John",
+  age: 20,
 };

@@ -1,4 +1,4 @@
-import { useState } from "react";
+/*import { useState } from "react";
 import useFetch from "../hooks/useFetch";
 
 type SwapiResponse = {
@@ -50,3 +50,4 @@ const StarWars = () => {
 };
 
 export default StarWars;
+*/

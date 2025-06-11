@@ -1,16 +1,16 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { movieSchema } from "../../types/movie";
-import type { Movie } from "../../types/movie";
-import { createMovie } from "../../services/movie.service";
-import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
+import {
+  movieSchema,
+  useCreateMovie,
+} from "../../../features/movies/api/create-movie";
+import type { Movie } from "../../../features/movies/api/get-movies";
 
 const CreateMovie = () => {
-  const { mutateAsync } = useMutation({
-    mutationFn: createMovie,
-  });
   const navigate = useNavigate();
+
+  const { mutateAsync } = useCreateMovie();
 
   const {
     register,
@@ -23,12 +23,9 @@ const CreateMovie = () => {
   const onSubmit = (data: Omit<Movie, "_id">) => {
     console.log(data);
     mutateAsync(data).then(() => {
-      console.log("Movie created");
       navigate("/movies");
     });
   };
-
-  console.log(register("description"));
 
   return (
     <div>
